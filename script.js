@@ -16,6 +16,4 @@ function getHumanChoice(error) {
     return getHumanChoice(true);
 }
 
-console.log(getComputerChoice())
-
-console.log(getHumanChoice(false))
+let humanScore = 0, computerScore = 0;
