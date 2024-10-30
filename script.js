@@ -7,22 +7,15 @@ function getComputerChoice() {
     return choices[randNum];
 }
 
-function getHumanChoice(error) {
-    let input = error ? prompt("Your input was incorrect, try again:") : prompt("Make your choice wisely:");
-
-    if (input === null) {
-        return getHumanChoice(false);
-    }
+function getHumanChoice() {
+    const input = prompt("Make your choice wisely:").toLowerCase();
     
-    input = input.toLowerCase();
-
     if (choices.includes(input)) {
         return input;
     }
+    console.error("Invalid input");
     return getHumanChoice(true);
 }
-
-let humanScore = 0, computerScore = 0;
 
 function playRound(humanChoice, computerChoice) {
     let winner;
@@ -71,16 +64,42 @@ function playRound(humanChoice, computerChoice) {
 
     switch (winner) {
         case "human":
-            humanScore++;
-            console.log(`You win! ${humanChoice} beats ${computerChoice}.`);
+            console.log(`You won this round! ${humanChoice} beats ${computerChoice}.`);
             return "human";
         case "tie":
-            console.log(`It's a tie! Both of you chose ${humanChoice}.`);
+            console.log(`This round is a tie! Both of you chose ${humanChoice}.`);
             return "tie";
         case "computer":
-            computerScore++;
-            console.log(`You lose! ${computerChoice} beats ${humanChoice}.`);
+            console.log(`You lost this round! ${computerChoice} beats ${humanChoice}.`);
             return "computer";
     }
 }
 
+function playGame() {
+    let humanScore = 0, computerScore = 0;
+
+    while (humanScore < 5 && computerScore < 5) {
+        const roundWinner = playRound(getHumanChoice(false), getComputerChoice());
+
+        switch (roundWinner) {
+            case "human":
+                humanScore++;
+                break;
+            case "computer":
+                computerScore++;
+                break;
+            case "tie":
+                break;
+        }
+    }
+
+    if (humanScore > computerScore) {
+        console.log(`You won! Your score is: ${humanScore}; The computers score is: ${computerScore}`);
+    } else {
+        console.log(`You lost! Your score is: ${humanScore} The computers score is: ${computerScore}`);
+    }
+
+}
+
+
+playGame();
