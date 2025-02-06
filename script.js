@@ -75,31 +75,31 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
-function playGame() {
-    let humanScore = 0, computerScore = 0;
+// function playGame() {
+//     let humanScore = 0, computerScore = 0;
 
-    while (humanScore < 5 && computerScore < 5) {
-        const roundWinner = playRound(getHumanChoice(false), getComputerChoice());
+//     while (humanScore < 5 && computerScore < 5) {
+//         const roundWinner = playRound(getHumanChoice(false), getComputerChoice());
 
-        switch (roundWinner) {
-            case "human":
-                humanScore++;
-                break;
-            case "computer":
-                computerScore++;
-                break;
-            case "tie":
-                break;
-        }
-    }
+//         switch (roundWinner) {
+//             case "human":
+//                 humanScore++;
+//                 break;
+//             case "computer":
+//                 computerScore++;
+//                 break;
+//             case "tie":
+//                 break;
+//         }
+//     }
 
-    if (humanScore > computerScore) {
-        console.log(`You won! Your score is: ${humanScore}; The computers score is: ${computerScore}`);
-    } else {
-        console.log(`You lost! Your score is: ${humanScore} The computers score is: ${computerScore}`);
-    }
+//     if (humanScore > computerScore) {
+//         console.log(`You won! Your score is: ${humanScore}; The computers score is: ${computerScore}`);
+//     } else {
+//         console.log(`You lost! Your score is: ${humanScore} The computers score is: ${computerScore}`);
+//     }
 
-}
+// }
 
 
 playGame();
