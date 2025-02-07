@@ -84,3 +84,14 @@ button:disabled {
     cursor: not-allowed;
     box-shadow: none;
 }
+
+footer {
+    position: absolute;
+    bottom: 10px;
+    text-align: center;
+    width: 100%;
+    font-size: 0.9rem;
+    color: #444;
+    background-color: #f4f4f4;
+    padding: 10px 0;
+}
